@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Lista de productos'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+
+	<!-- list -->
+	<div class="container products-wrapper">
+		<div class="">
+			<div class="col-12">
+				<h2 class="products-title">Lista de productos</h2>
+			</div>
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Cantidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                <% products.forEach(product => { %>
+                  <tr>
+                        <th scope="row"><a href="/products/detail/<%= product.id %>"><%= product.id %></a></th>
+                        <td><a href="/products/detail/<%= product.id %>"><%= product.name %></a></td>
+                        <td class="product-list_color" style="background-color:<%= product.color %> ; "></td>
+
+                        <td><%= product.weight %>Kg.</td>
+                        <td><%= product.quantity %></td>
+
+                        <td>
+                        <button  class="btn btn-primary"   style="float: right;">
+                            <a href="/products/edit/<%= product.id %>" class="action-button-list edit-list">EDITAR PRODUCTO</a>
+                        </button>
+                    </td>
+						<td>
+						<form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+							<button type="submit"  class="btn btn-danger">ELIMINAR</button>
+						</form>
+                        </td>
+                  </tr>
+			    <% }) %>
+                
+                  
+                </tbody>
+              </table>
+
+
+
+		</div>
+	</div>
+	<!-- /list -->
+
+	
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

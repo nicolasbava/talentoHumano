@@ -1,0 +1,36 @@
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= title %> - Mercado Liebre Argentina</title>
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+
+	
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="/css/app.css">
+
+	<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script>
+      function init() {
+        var stage = new createjs.Stage("demoCanvas");
+        var circle = new createjs.Shape();
+        circle.graphics.beginFill("Crimson").drawCircle(0, 0, 50);
+        circle.x = 100;
+        circle.y = 100;
+        stage.addChild(circle);
+        createjs.Tween.get(circle, {loop: true})
+          .to({x: 400}, 1000, createjs.Ease.getPowInOut(4))
+          .to({alpha: 0, y: 75}, 500, createjs.Ease.getPowInOut(2))
+          .to({alpha: 0, y: 125}, 100)
+          .to({alpha: 1, y: 100}, 500, createjs.Ease.getPowInOut(2))
+          .to({x: 100}, 800, createjs.Ease.getPowInOut(2));
+        createjs.Ticker.setFPS(60);
+        createjs.Ticker.addEventListener("tick", stage);
+      }
+    </script>
+</head>

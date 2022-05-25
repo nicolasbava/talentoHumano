@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Formulario de creación'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Formulario de creación de productos</h2>
+			</div>
+		</div>
+		<div class="col-12">
+			<form action="/products/create" method="POST" enctype="multipart/form-data">
+				<div class="row product-detail">
+					<!-- Nombre del producto -->
+					<div class="col-12 col-md-6">
+						<label for="name" class="form-label">Nombre del producto:</label>
+						<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input">
+					</div>
+					<!-- Precio del producto -->
+					<div class="col-12 col-md-6">
+						<label for="price" class="form-label">Precio del producto:</label>
+						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+					</div>
+
+					<!-- Código del producto -->
+					<div class="col-12 col-md-6">
+						<label for="discount" class="form-label">Código del producto:</label>
+						<input type="text" id="code" name="code" placeholder="Ej: 15" class="form-input">
+					</div>
+
+					<!-- Color del producto -->
+					<div class="col-12 col-md-2">
+						<label for="color" class="form-label">Color del producto:</label>
+						<div id="color-picker-wrapper">							
+							<input name="color" type="color" value="#333">
+						</div>
+					</div>
+
+					<!-- Cantidad de productos -->
+					<div class="col-12 col-md-6">
+						<label for="discount" class="form-label">Cantidad de productos:</label>
+						<input type="number" id="quantity" name="quantity" placeholder="15" class="form-input">
+					</div>
+					
+					<!-- Peso del producto -->
+					<div class="col-12 col-md-6">
+						<label for="weight" class="form-label">Peso en Kilogramos:</label>
+						<input name="weight" type="number" class="form-input" placeholder="25 Kg."></input>
+					</div>
+
+					<!-- Imagen del producto -->
+					<div class="col-12 col-md-6">
+						<label for="image" class="form-label">Imagen producto:</label>
+						<input type="file" name="image" class="form-input input-img">
+					</div>
+
+					<div class="col-12">
+						<button type="submit" class="buy-now-button">Guardar producto</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>
+
+<!-- agregar producto con nombre, color, codigo, peso -->
